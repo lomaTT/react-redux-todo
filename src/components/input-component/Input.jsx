@@ -1,26 +1,17 @@
 import * as React from 'react';
 import {useState} from "react";
+import {createTask, deleteAllCompleted} from "../../functions/functions";
 
-export const Input = () => {
+export const Input = ({dispatch, addUser, data, isEditting, setIsEditting, editTask}) => {
   const handleOnChange = (e) => {
     setTask(e.target.value);
-  }
-
-  const createNewTask = (e) => {
-    e.preventDefault();
-    console.log("created");
-  }
-
-  const deleteAllCompleted = (e) => {
-    e.preventDefault();
-    console.log("deleted")
   }
 
   const [task, setTask] = useState("");
   // console.log(task);
   return (
     <div className="flex justify-center items-center mt-12">
-      <form action="" className="max-w-lg w-3/4">
+      <div className="max-w-lg w-3/4">
         <input
           type="text"
           placeholder="Write your task here.."
@@ -28,11 +19,15 @@ export const Input = () => {
           onChange={handleOnChange}
           value={task}
         />
+
         <div className="flex justify-center">
-          <button className="button-create" onClick={createNewTask}>Create task</button>
-          <button className="button-delete" onClick={deleteAllCompleted}>Delete all completed tasks</button>
+
+          <button className="button-create" onClick={() => createTask(task, dispatch, addUser, data)}>
+            {isEditting ? "Edit" : "Create"} task
+              </button>
+          <button className="button-delete" onClick={() => deleteAllCompleted}>Delete all completed tasks</button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

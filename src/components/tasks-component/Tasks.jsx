@@ -1,18 +1,11 @@
-export const Tasks = ({data}) => {
-  const handleDeleteTask = (e) => {
-    e.preventDefault();
-    console.log("delete 1 task");
-  }
+import {handleDeleteTask, handleMarkTask} from "../../functions/functions";
 
-  const handleEditTask = (e) => {
-    e.preventDefault();
+export const Tasks = ({data, dispatch, deleteUser, isEditting, setIsEditting, completeTask}) => {
+  const handleEditTask = () => {
+    setIsEditting(true);
     console.log("edit 1 task");
   }
 
-  const handleMarkTask = (e) => {
-    e.preventDefault();
-    console.log("mark 1 task");
-  }
 
   return (
     <div className="m-5">
@@ -31,14 +24,19 @@ export const Tasks = ({data}) => {
               border-amber-500"
           >
 
-            <div className="grow pl-2 cursor-vertical-text" onClick={handleMarkTask}>{item.name}</div>
+            <div className={
+              item.completed ?
+                "grow pl-2 cursor-vertical-text line-through" :
+                "grow pl-2 cursor-vertical-text"
+            }
+                 onClick={() => handleMarkTask(dispatch, completeTask, item)}>{item.name}</div>
             <button onClick={handleEditTask}>
               <img
-                src="icons/close.png" alt="close"
+                src="icons/pencil.png" alt="close"
                 className="w-5 grow-0"
               />
             </button>
-            <button onClick={handleDeleteTask}>
+            <button onClick={() => handleDeleteTask(item, dispatch, deleteUser)}>
               <img
                 src="icons/close.png" alt="close"
                 className="w-5 grow-0"
