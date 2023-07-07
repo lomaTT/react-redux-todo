@@ -2,10 +2,15 @@ import * as React from 'react';
 import {useState} from "react";
 import {createTask, deleteAllCompleted} from "../../functions/functions";
 
-export const Input = ({dispatch, addUser, data, isEditting, setIsEditting, editTask}) => {
+export const Input = ({dispatch, addUser, data, isEditting, deleteAllCompleted}) => {
   const handleOnChange = (e) => {
     setTask(e.target.value);
   }
+
+  const handleDeleteCompleted = () => {
+    dispatch(deleteAllCompleted());
+  }
+
 
   const [task, setTask] = useState("");
   // console.log(task);
@@ -25,7 +30,7 @@ export const Input = ({dispatch, addUser, data, isEditting, setIsEditting, editT
           <button className="button-create" onClick={() => createTask(task, dispatch, addUser, data)}>
             {isEditting ? "Edit" : "Create"} task
               </button>
-          <button className="button-delete" onClick={() => deleteAllCompleted}>Delete all completed tasks</button>
+          <button className="button-delete" onClick={handleDeleteCompleted}>Delete all completed tasks</button>
         </div>
       </div>
     </div>

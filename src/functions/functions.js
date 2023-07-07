@@ -5,11 +5,6 @@ export const createTask = (task, dispatch, addUser, data) => {
   }
 }
 
-export const deleteAllCompleted = (e) => {
-  e.preventDefault();
-  console.log("deleted")
-}
-
 export const handleDeleteTask = (item, dispatch, deleteUser) => {
   // e.preventDefault();
   console.log("delete 1 task");

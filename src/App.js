@@ -1,7 +1,7 @@
 import {Input} from "./components/input-component/Input";
 import {Tasks} from "./components/tasks-component/Tasks";
 import {useSelector, useDispatch} from "react-redux";
-import {addUser, deleteUser, editTask, completeTask} from "./features/Users";
+import {addUser, deleteUser, editTask, completeTask, deleteAllCompleted} from "./features/Users";
 import {useState} from "react";
 
 
@@ -19,6 +19,7 @@ function App() {
         data={tasks}
         isEditting={isEditting}
         setIsEditting={setIsEditting}
+        deleteAllCompleted={deleteAllCompleted}
       />
 
       <Tasks

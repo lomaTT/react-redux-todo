@@ -25,9 +25,13 @@ export const userSlice = createSlice({
         if (item.id === action.payload.id) item.completed = true;
       });
       // console.log(JSON.stringify(state.value));
+    },
+
+    deleteAllCompleted: (state) => {
+      state.value = state.value.filter((item) => item.completed !== true);
     }
   }
 })
 
-export const {addUser, deleteUser, editTask, completeTask} = userSlice.actions;
+export const {addUser, deleteUser, editTask, completeTask, deleteAllCompleted} = userSlice.actions;
 export default userSlice.reducer;
