@@ -1,7 +1,8 @@
 export const createTask = (task, dispatch, addUser, data) => {
   console.log("created");
   if (task.length > 0) {
-    dispatch(addUser({id: data[data.length - 1].id + 1, name: task, completed: false}));
+    // console.log(data[data.length - 1]?.id);
+    dispatch(addUser({id: ((data[data.length - 1]?.id ?? 0) + 1), name: task, completed: false}));
   }
 }
 
