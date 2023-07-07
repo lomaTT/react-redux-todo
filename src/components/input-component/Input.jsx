@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from "react";
-import {createTask, deleteAllCompleted} from "../../functions/functions";
+import {createTask} from "../../functions/functions";
 
 export const Input = ({dispatch, addUser, data, isEditting, deleteAllCompleted}) => {
   const handleOnChange = (e) => {

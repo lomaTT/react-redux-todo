@@ -22,8 +22,10 @@ export const userSlice = createSlice({
 
     completeTask: (state, action) => {
       state.value.map((item, index) => {
-        if (item.id === action.payload.id) item.completed = true;
+        if (item.id === action.payload.id && item.completed === true) item.completed = false;
+        else if (item.id === action.payload.id && item.completed === false) item.completed = true;
       });
+      // console.log(JSON.stringify(state.value));
       // console.log(JSON.stringify(state.value));
     },
 
