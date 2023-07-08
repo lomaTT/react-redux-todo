@@ -2,6 +2,7 @@
   "name": "react-redux-todo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/to-do",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",

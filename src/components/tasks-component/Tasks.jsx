@@ -1,9 +1,10 @@
 import {handleDeleteTask, handleMarkTask} from "../../functions/functions";
 
 export const Tasks = (
-  {data, dispatch, deleteUser,
-    isEditting, setIsEditting,
-    completeTask, task, setTask,
+  {
+    data, dispatch, deleteUser,
+    setIsEditting,
+    completeTask, setTask,
     setEdittedTask
   }) => {
   const handleEditTask = (task) => {
@@ -11,8 +12,6 @@ export const Tasks = (
     setTask(task.name);
     setEdittedTask(task);
   }
-
-
   return (
     <div className="m-5">
       <div className="w-full flex items-center justify-around flex-col">
@@ -38,13 +37,13 @@ export const Tasks = (
                  onClick={() => handleMarkTask(dispatch, completeTask, item)}>{item.name}</div>
             <button onClick={() => handleEditTask(item)}>
               <img
-                src="icons/pencil.png" alt="close"
+                src={`${process.env.PUBLIC_URL}/icons/pencil.png`} alt="close"
                 className="w-5 grow-0"
               />
             </button>
             <button onClick={() => handleDeleteTask(item, dispatch, deleteUser)}>
               <img
-                src="icons/close.png" alt="close"
+                src={`${process.env.PUBLIC_URL}/icons/close.png`} alt="close"
                 className="w-5 grow-0"
               />
             </button>

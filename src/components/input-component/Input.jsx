@@ -4,7 +4,8 @@ import {createTask} from "../../functions/functions";
 import {editTask} from "../../features/Users";
 
 export const Input = (
-  {dispatch, addUser, data,
+  {
+    dispatch, addUser, data,
     isEditting, deleteAllCompleted, task,
     setTask, edittedTask, setIsEditting
   }) => {
@@ -18,8 +19,7 @@ export const Input = (
   }
 
   const handleEditTask = (item) => {
-    // console.log(edittedTask);
-    dispatch(editTask({id: edittedTask.id, newTask: task}));
+    dispatch(editTask({id: edittedTask.id, newTask: task }));
     setIsEditting(false);
     setTask("");
   }

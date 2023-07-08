@@ -11,7 +11,7 @@ function App() {
   const [isEditting, setIsEditting] = useState(false);
   const [task, setTask] = useState("");
   const [edittedTask, setEdittedTask] = useState({});
-  // console.log(isEditting);
+
   return (
     <div className="App">
       <Input
@@ -32,10 +32,8 @@ function App() {
         dispatch={dispatch}
         data={tasks}
         deleteUser={deleteUser}
-        isEditting={isEditting}
         setIsEditting={setIsEditting}
         completeTask={completeTask}
-        task={task}
         setTask={setTask}
         setEdittedTask={setEdittedTask}
       />

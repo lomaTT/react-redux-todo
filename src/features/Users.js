@@ -9,7 +9,7 @@ export const userSlice = createSlice({
   reducers: {
     addUser: (state, action) => {
       state.value.push(action.payload);
-      console.log(action.payload);
+      // console.log(action.payload);
     },
 
     deleteUser: (state, action) => {
@@ -18,9 +18,11 @@ export const userSlice = createSlice({
 
     editTask: (state, action) => {
       // console.log(action.payload);
-      state.value.map((item) => {
-        if (item.id === action.payload.id) item.name = action.payload.newTask;
-      });
+      if (action.payload.newTask.length > 0) {
+        state.value.map((item) => {
+          if (item.id === action.payload.id) item.name = action.payload.newTask;
+        });
+      }
     },
 
     completeTask: (state, action) => {
