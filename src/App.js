@@ -9,6 +9,8 @@ function App() {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.users.value)
   const [isEditting, setIsEditting] = useState(false);
+  const [task, setTask] = useState("");
+  const [edittedTask, setEdittedTask] = useState({});
   // console.log(isEditting);
   return (
     <div className="App">
@@ -20,6 +22,10 @@ function App() {
         isEditting={isEditting}
         setIsEditting={setIsEditting}
         deleteAllCompleted={deleteAllCompleted}
+        task={task}
+        setTask={setTask}
+        edittedTask={edittedTask}
+        setIsEditting={setIsEditting}
       />
 
       <Tasks
@@ -29,6 +35,9 @@ function App() {
         isEditting={isEditting}
         setIsEditting={setIsEditting}
         completeTask={completeTask}
+        task={task}
+        setTask={setTask}
+        setEdittedTask={setEdittedTask}
       />
 
     </div>

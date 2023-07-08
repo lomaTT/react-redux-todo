@@ -1,9 +1,15 @@
 import {handleDeleteTask, handleMarkTask} from "../../functions/functions";
 
-export const Tasks = ({data, dispatch, deleteUser, isEditting, setIsEditting, completeTask}) => {
-  const handleEditTask = () => {
+export const Tasks = (
+  {data, dispatch, deleteUser,
+    isEditting, setIsEditting,
+    completeTask, task, setTask,
+    setEdittedTask
+  }) => {
+  const handleEditTask = (task) => {
     setIsEditting(true);
-    console.log("edit 1 task");
+    setTask(task.name);
+    setEdittedTask(task);
   }
 
 
@@ -30,7 +36,7 @@ export const Tasks = ({data, dispatch, deleteUser, isEditting, setIsEditting, co
                 "grow pl-2 cursor-vertical-text"
             }
                  onClick={() => handleMarkTask(dispatch, completeTask, item)}>{item.name}</div>
-            <button onClick={handleEditTask}>
+            <button onClick={() => handleEditTask(item)}>
               <img
                 src="icons/pencil.png" alt="close"
                 className="w-5 grow-0"

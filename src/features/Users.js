@@ -17,7 +17,10 @@ export const userSlice = createSlice({
     },
 
     editTask: (state, action) => {
-      // console.log(JSON.stringify(state.value.));
+      // console.log(action.payload);
+      state.value.map((item) => {
+        if (item.id === action.payload.id) item.name = action.payload.newTask;
+      });
     },
 
     completeTask: (state, action) => {
